@@ -55,6 +55,9 @@ $clube_fcp = "fcp";
 $clube_slb = "slb";
 $clube_scp = "scp";
 
+echo "Qual o seu clube?";
+echo "<br>";
+
 if ($clube === $clube_faro) {
     echo "És farense!";
 } elseif ($clube === $clube_fcp) {
@@ -66,6 +69,34 @@ if ($clube === $clube_faro) {
 } else {
     echo "Clube não identificado 😢";
 }
+
+quebra("SWITCH");
+
+echo "Qual o seu clube?";
+echo "<br>";
+
+switch($clube) {
+    case $clube_faro;
+    echo "És farense!";
+    break;
+
+    case $clube_fcp;
+    echo "És fruteiro! 🍑 🫒 🍎 🥥 🍋‍🟩 🍏";
+    break;
+
+    case $clube_slb;
+    echo "És lampião! 💡";
+    break;
+
+    case $clube_scp;
+    echo "És lagarto! 🦎";
+    break;
+
+    default:
+    echo "Clube não identificado 😢";
+}
+
+
 
 
 
