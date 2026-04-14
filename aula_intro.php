@@ -1,7 +1,7 @@
 <?php
 
 function quebra($legenda) {
-    echo "<br><hr>:::::::::::::::::::::::::::::::::::::::::::::::: $legenda :::::::::::::::::::::::::::::::::::::::::::::::: $legenda :::::::::::::::::::::::::::::::::::::::::::::::: <hr><br>";
+    echo "<br><hr>:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: $legenda <hr><br>";
 }
 
 quebra("ARRAYS parte 1");
@@ -150,6 +150,10 @@ for($i=0; $i<$qnt; $i++) {
     echo "O aluno é o $este_aluno que mora em $esta_morada.<br>";
     // ou apenas o código abaixo que substitui as linhas acima
     echo "O aluno é o {$alunos[$i]} que mora em {$moradas[$i]}. <br>";
+}
+
+foreach($alunos as $chave => $valor) {
+    echo "O aluno é o $valor que mora "; // CONTINUAR
 }
 
 $combinado = array_combine($alunos, $moradas);
