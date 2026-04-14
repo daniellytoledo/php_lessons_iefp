@@ -138,6 +138,28 @@ while($contador < $qnt_array) {
     $contador++;
 }
 
+quebra("CICLOS - FOR");
+
+$alunos  = ["Afonso", "Anderson", "António", "Miguel", "Bruno"];
+$moradas = ["Areal Gordo", "Faro", "Quinta do Lago", "Montenegro", "Faro"];
+$qnt     = count($alunos);
+
+for($i=0; $i<$qnt; $i++) {
+    $este_aluno  = $alunos[$i];
+    $esta_morada = $moradas[$i];
+    echo "O aluno é o $este_aluno que mora em $esta_morada.<br>";
+    // ou apenas o código abaixo que substitui as linhas acima
+    echo "O aluno é o {$alunos[$i]} que mora em {$moradas[$i]}. <br>";
+}
+
+$combinado = array_combine($alunos, $moradas);
+foreach($combinado as $este_aluno => $esta_morada) {
+    echo "O aluno é o $este_aluno que mora em $esta_morada!!!!!!!!1 combinado <br>";
+}
+
+quebra("ARRAYS provenientes de FORMS");
+
+
 
 
 
