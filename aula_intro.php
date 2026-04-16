@@ -457,27 +457,7 @@ echo '<br><br>';
 
 quebra("FUNÇÕES DE BASES DE DADOS - PDO");
 
-require_once 'config.php';
-
-$opcoes = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES   => false
-];
-$dsn = "mysql:host=$server;dbname=$bd;charset=utf8";
-
-try {
-    // 1º criar uma conexão
-    $conexao = new PDO(
-        $dsn,
-        $user,
-        $pass,
-        $opcoes
-    );
-
-}catch(PDOException $erro){
-    echo "Erro na ligação: " . $erro->getMessage();
-}
+require_once 'db/car_rent.php';
 
 // 2º definir uma query para a BD
 $sql = "SELECT * FROM clientes LIMIT 1";
@@ -605,8 +585,8 @@ foreach($reclusos as $recluso) {
     $dataFormatada  = date("d-m-y", $data);       // data formatada
     $anoString      = date("Y", $data);          // pega apenas o valor de Y (year) da data
     $ano_nascimento = intval($anoString);       // e aqui criamos uma variável para o valor de inteiro de Y que foi declarado como $anoString
-    
-    echo $dataFormatada . "<br>";
+
+    // echo $dataFormatada . "<br>";
     // $ano_de_nascimento = intval(date("Y", strtotime($recluso["data_nascimento"])));
 
     $nome            = $recluso['nome'];
@@ -625,7 +605,7 @@ foreach($reclusos as $recluso) {
     echo $output;
 }
 
-die();
+
 
 echo "<br>";
 echo "<hr>";
@@ -634,6 +614,7 @@ echo "Fim do código";
 echo "<br>";
 echo "<br>";
 echo "<hr>";
+
 ?>
 
 
