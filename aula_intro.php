@@ -603,8 +603,9 @@ foreach($reclusos as $recluso) {
     $string         = $recluso['data_nascimento'];  // parece data, mas é string
     $data           = strtotime($string);          // converte string para data
     $dataFormatada  = date("d-m-y", $data);       // data formatada
-    $anoString      = date("Y", $data);
-    $ano_nascimento = intval($anoString);
+    $anoString      = date("Y", $data);          // pega apenas o valor de Y (year) da data
+    $ano_nascimento = intval($anoString);       // e aqui criamos uma variável para o valor de inteiro de Y que foi declarado como $anoString
+    
     echo $dataFormatada . "<br>";
     // $ano_de_nascimento = intval(date("Y", strtotime($recluso["data_nascimento"])));
 
@@ -618,7 +619,7 @@ foreach($reclusos as $recluso) {
 
     if($ano_nascimento < 1980) {
         $output .= " Em virtude de ter nascido antes de 1980, será transferido para o novo Estabelecimento Prisional de Olhão.";
-    }
+    } // .= significa concateção para adicionar mais coisas depois do output já existente
 
     $output .= "<br><br>";
     echo $output;
