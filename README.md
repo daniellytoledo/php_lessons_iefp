@@ -34,3 +34,36 @@ Este projeto é um estudo prático dos conceitos fundamentais do PHP, incluindo 
 ```php
 $pessoas = ["Ana", "Bruno", "Carlos", "Diana"];
 echo $pessoas[0]; // Ana
+
+### Arrays Associativos
+```php
+$pessoa = [
+    "nome" => "João",
+    "idade" => 25,
+    "cidade" => "Lisboa"
+];
+echo $pessoa["nome"]; // João
+
+### Loop for
+$frutas = ["Maçã", "Banana", "Laranja"];
+for($i = 0; $i < count($frutas); $i++) {
+    echo $frutas[$i] . "<br>";
+}
+
+### Loop foreach
+$cores = ["Vermelho", "Azul", "Verde"];
+foreach($cores as $cor) {
+    echo $cor . "<br>";
+}
+
+// Com chaves
+foreach($pessoa as $chave => $valor) {
+    echo "$chave: $valor<br>";
+}
+
+### Loop while
+$contador = 1;
+while($contador <= 5) {
+    echo "Número: $contador<br>";
+    $contador++;
+}
