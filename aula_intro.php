@@ -244,7 +244,7 @@ $moradas1 = [
     "Avenida dos Aliados, 150, Porto"
 ];
 
-$pessoas3 = [
+$pessoasCompleto = [
     [
         "nome" => "Ana",
         "morada" => "Rua das Flores, 123, Lisboa",
@@ -302,6 +302,17 @@ echo "1. foreach: <br>";
 echo "<br>";
 foreach($pessoas1 as $chave => $valor) {
     echo "A pessoa é o(a) $valor, ele(a) é {$profissoes[$chave]} e mora em {$moradas1[$chave]}. <br>";
+}
+
+echo "<br>";
+echo "1.1 outro foreach: <br>";
+echo "<br>";
+
+foreach($pessoasCompleto as $pessoa) {
+    $nome      = $pessoa['nome'];
+    $morada    = $pessoa['morada'];
+    $profissao = $pessoa['profissao'];
+    echo "A $nome mora em $morada e é $profissao. <br>";
 }
 
 echo "<br>";
@@ -368,75 +379,75 @@ for($i=0;$i<20;$i++){
 
 quebra("FUNÇÕES");
 
-$var1="Batatas";
-$var2="";
-$var3;
-$var4=null;
-$var5=6;
-$var6=0;
+$var_a="Batatas";
+$var_b="";
+$var_c;
+$var_d=null;
+$var_e=6;
+$var_f=0;
 
-echo isset($var1)?"Está definida":"Não está definida";
+echo isset($var_a)?"Está definida":"Não está definida";
 echo '<br>';
-echo isset($var2)?"Está definida":"Não está definida";
+echo isset($var_b)?"Está definida":"Não está definida";
 echo '<br>';
-echo isset($var3)?"Está definida":"Não está definida";
+echo isset($var_c)?"Está definida":"Não está definida";
 echo '<br>';
-echo isset($var4)?"Está definida":"Não está definida";
+echo isset($var_d)?"Está definida":"Não está definida";
 echo '<br>';
-echo isset($var5)?"Está definida":"Não está definida";
+echo isset($var_e)?"Está definida":"Não está definida";
 echo '<br>';
-echo isset($var6)?"Está definida":"Não está definida";
+echo isset($var_f)?"Está definida":"Não está definida";
 echo '<br>';
 echo isset($var7)?"Está definida":"Não está definida";
 echo '<br>';
 echo "isset() apenas devolve FALSE em variáveis não existentes ou com valor NULL";
 echo '<br><br>';
 
-echo empty($var1)?"Está vazia":"Não está vazia";
+echo empty($var_a)?"Está vazia":"Não está vazia";
 echo '<br>';
-echo empty($var2)?"Está vazia":"Não está vazia";
+echo empty($var_b)?"Está vazia":"Não está vazia";
 echo '<br>';
-echo empty($var3)?"Está vazia":"Não está vazia";
+echo empty($var_c)?"Está vazia":"Não está vazia";
 echo '<br>';
-echo empty($var4)?"Está vazia":"Não está vazia";
+echo empty($var_d)?"Está vazia":"Não está vazia";
 echo '<br>';
-echo empty($var5)?"Está vazia":"Não está vazia";
+echo empty($var_e)?"Está vazia":"Não está vazia";
 echo '<br>';
-echo empty($var6)?"Está vazia":"Não está vazia";
+echo empty($var_f)?"Está vazia":"Não está vazia";
 echo '<br>';
 echo empty($var7)?"Está vazia":"Não está vazia";
 echo '<br>';
 echo "empty() apenas devolve TRUE em variáveis com string vazia '''', NULL, com valor zero e inexistentes";
 echo '<br><br>';
 
-echo $var1?"Verdadeiro":"Falso";
+echo $var_a?"Verdadeiro":"Falso";
 echo '<br>';
-echo $var2?"Verdadeiro":"Falso";
+echo $var_b?"Verdadeiro":"Falso";
 echo '<br>';
-echo $var3?"Verdadeiro":"Falso";
+echo $var_c?"Verdadeiro":"Falso";
 echo '<br>';
-echo $var4?"Verdadeiro":"Falso";
+echo $var_d?"Verdadeiro":"Falso";
 echo '<br>';
-echo $var5?"Verdadeiro":"Falso";
+echo $var_e?"Verdadeiro":"Falso";
 echo '<br>';
-echo $var6?"Verdadeiro":"Falso";
+echo $var_f?"Verdadeiro":"Falso";
 echo '<br>';
 echo $var7?"Verdadeiro":"Falso";
 echo '<br>';
 echo "o teste da variável devolve FALSO quando a variável é uma string vazia '''', quando é NULL, quando é zero, e quando é inexistente. CUIDADO: neste último caso o PHP lança um aviso, mas ainda considera FALSO";
 echo '<br><br>';
 
-echo is_null($var1)?"Verdadeiro":"Falso";
+echo is_null($var_a)?"Verdadeiro":"Falso";
 echo '<br>';
-echo is_null($var2)?"Verdadeiro":"Falso";
+echo is_null($var_b)?"Verdadeiro":"Falso";
 echo '<br>';
-echo is_null($var3)?"Verdadeiro":"Falso";
+echo is_null($var_c)?"Verdadeiro":"Falso";
 echo '<br>';
-echo is_null($var4)?"Verdadeiro":"Falso";
+echo is_null($var_d)?"Verdadeiro":"Falso";
 echo '<br>';
-echo is_null($var5)?"Verdadeiro":"Falso";
+echo is_null($var_e)?"Verdadeiro":"Falso";
 echo '<br>';
-echo is_null($var6)?"Verdadeiro":"Falso";
+echo is_null($var_f)?"Verdadeiro":"Falso";
 echo '<br>';
 echo is_null($var7)?"Verdadeiro":"Falso";
 echo '<br>';
@@ -444,13 +455,9 @@ echo "o is_null() da variável devolve VERDADEIRO quando o valor é NULL ou a va
 echo '<br><br>';
 
 
-
 quebra("FUNÇÕES DE BASES DE DADOS - PDO");
 
-$server = "localhost";
-$bd     = "rentacar";
-$user   = "root";
-$pass   = "";
+require_once 'config.php';
 
 $opcoes = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -481,23 +488,120 @@ $stmt = $conexao->query($sql);
 // 4º transformar a resposta num array associativo
 $resultado = $stmt->fetch();
 
-echo $resultado['nome'].", com a carta de condução ".$resultado['carta_c']." e o NIF ".$resultado['nif'];
+echo $resultado['nome'].", com a carta de condução ".$resultado['ncc']." e o NIF ".$resultado['nif'];
 
 echo '<br><br><br><br>';
 
 // Outro exemplo: vários resultados
-$sql = "SELECT * FROM clientes";
+$sql  = "SELECT * FROM clientes";
 $stmt = $conexao->query($sql);
 $resultado = $stmt->fetchAll();
 
 foreach($resultado as $cliente){
     $nome = $cliente['nome'];
-    $cc   = $cliente['carta_c'];
+    $cc   = $cliente['ncc'];
     $nif  = $cliente['nif'];
 
     echo "<p style='background-color:lightgreen;'>$nome, com a carta de condução $cc e o NIF $nif</p>";
 }
-echo '<br><br><br><br><br><br><br>';
+echo '<br>';
+echo "<hr>";
+
+echo "<br>";
+echo "Reclusos";
+echo "<br>";
+
+$reclusos = [
+    [
+        "nome" => "João Silva",
+        "pena" => "5 anos e 6 meses",
+        "crime" => "Furto qualificado",
+        "e_prisional" => "Estabelecimento Prisional de Lisboa",
+        "data_nascimento" => "1985-03-12"
+    ],
+    [
+        "nome" => "Carlos Mendes",
+        "pena" => "12 anos",
+        "crime" => "Homicídio",
+        "e_prisional" => "Estabelecimento Prisional de Coimbra",
+        "data_nascimento" => "1978-07-25"
+    ],
+    [
+        "nome" => "Ricardo Alves",
+        "pena" => "3 anos e 2 meses",
+        "crime" => "Tráfico de droga",
+        "e_prisional" => "Estabelecimento Prisional do Porto",
+        "data_nascimento" => "1990-11-05"
+    ],
+    [
+        "nome" => "Miguel Rocha",
+        "pena" => "8 anos",
+        "crime" => "Roubo agravado",
+        "e_prisional" => "Estabelecimento Prisional de Braga",
+        "data_nascimento" => "1982-01-19"
+    ],
+    [
+        "nome" => "Pedro Costa",
+        "pena" => "2 anos e 8 meses",
+        "crime" => "Burla",
+        "e_prisional" => "Estabelecimento Prisional de Leiria",
+        "data_nascimento" => "1995-06-30"
+    ],
+    [
+        "nome" => "André Ferreira",
+        "pena" => "15 anos",
+        "crime" => "Violação",
+        "e_prisional" => "Estabelecimento Prisional de Évora",
+        "data_nascimento" => "1975-09-14"
+    ],
+    [
+        "nome" => "Tiago Sousa",
+        "pena" => "4 anos",
+        "crime" => "Ofensa à integridade física",
+        "e_prisional" => "Estabelecimento Prisional de Setúbal",
+        "data_nascimento" => "1988-12-22"
+    ],
+    [
+        "nome" => "Bruno Lopes",
+        "pena" => "6 anos e 3 meses",
+        "crime" => "Sequestro",
+        "e_prisional" => "Estabelecimento Prisional de Faro",
+        "data_nascimento" => "1983-04-10"
+    ],
+    [
+        "nome" => "Nuno Martins",
+        "pena" => "10 anos",
+        "crime" => "Assalto à mão armada",
+        "e_prisional" => "Estabelecimento Prisional de Aveiro",
+        "data_nascimento" => "1979-08-03"
+    ],
+    [
+        "nome" => "Fábio Gomes",
+        "pena" => "1 ano e 6 meses",
+        "crime" => "Condução sem carta",
+        "e_prisional" => "Estabelecimento Prisional de Viseu",
+        "data_nascimento" => "2000-02-17"
+    ]
+];
+
+foreach($reclusos as $recluso) {
+    $nome            = $recluso['nome'];
+    $pena            = $recluso['pena'];
+    $crime           = $recluso['crime'];
+    $e_prisional     = $recluso['e_prisional'];
+    $data_nascimento = $recluso['data_nascimento'];
+    echo "O $nome, nascido em $data_nascimento, teve pena de $pena pelo crime $crime e está localizado em $e_prisional <br>";
+}
+
+/* EXEMPLO:
+foreach($pessoasCompleto as $pessoa) {
+    $nome      = $pessoa['nome'];
+    $morada    = $pessoa['morada'];
+    $profissao = $pessoa['profissao'];
+    echo "A $nome mora em $morada e é $profissao. <br>";
+} */
+
+echo "<br>";
 echo "Fim do código";
 ?>
 
