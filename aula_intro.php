@@ -508,8 +508,9 @@ echo '<br>';
 echo "<hr>";
 
 echo "<br>";
-echo "Reclusos";
-echo "<br>";
+echo "BD - Reclusos";
+echo "<br><br>";
+echo "------------ Exercício: <br><br>";
 
 $reclusos = [
     [
@@ -584,6 +585,7 @@ $reclusos = [
     ]
 ];
 
+
 foreach($reclusos as $recluso) {
     $nome            = $recluso['nome'];
     $pena            = $recluso['pena'];
@@ -593,16 +595,44 @@ foreach($reclusos as $recluso) {
     echo "O $nome, nascido em $data_nascimento, teve pena de $pena pelo crime $crime e está localizado em $e_prisional <br>";
 }
 
-/* EXEMPLO:
-foreach($pessoasCompleto as $pessoa) {
-    $nome      = $pessoa['nome'];
-    $morada    = $pessoa['morada'];
-    $profissao = $pessoa['profissao'];
-    echo "A $nome mora em $morada e é $profissao. <br>";
-} */
+echo "<br>";
+echo "------------ Exercício com a data de nascimento para ser transferido de prisão.";
+echo "<br><br>";
+
+foreach($reclusos as $recluso) {
+    $string         = $recluso['data_nascimento'];  // parece data, mas é string
+    $data           = strtotime($string);          // converte string para data
+    $dataFormatada  = date("d-m-y", $data);       // data formatada
+    $anoString      = date("Y", $data);
+    $ano_nascimento = intval($anoString);
+    echo $dataFormatada . "<br>";
+    // $ano_de_nascimento = intval(date("Y", strtotime($recluso["data_nascimento"])));
+
+    $nome            = $recluso['nome'];
+    $pena            = $recluso['pena'];
+    $crime           = $recluso['crime'];
+    $e_prisional     = $recluso['e_prisional'];
+    $data_nascimento = $recluso['data_nascimento'];
+    
+    $output = "O recluso $nome, nascido em $dataFormatada, encontra-se a cumprir uma pena de $pena por $crime, no $e_prisional.";
+
+    if($ano_nascimento < 1980) {
+        $output .= " Em virtude de ter nascido antes de 1980, será transferido para o novo Estabelecimento Prisional de Olhão.";
+    }
+
+    $output .= "<br><br>";
+    echo $output;
+}
+
+die();
 
 echo "<br>";
+echo "<hr>";
+echo "<br>";
 echo "Fim do código";
+echo "<br>";
+echo "<br>";
+echo "<hr>";
 ?>
 
 
