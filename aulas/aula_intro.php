@@ -457,7 +457,7 @@ echo '<br><br>';
 
 quebra("FUNÇÕES DE BASES DE DADOS - PDO");
 
-require_once 'db/car_rent.php';
+require_once '../db/car_rent.php';
 
 // 2º definir uma query para a BD
 $sql = "SELECT * FROM clientes LIMIT 1";
