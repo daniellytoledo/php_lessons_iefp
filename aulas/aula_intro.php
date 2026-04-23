@@ -605,6 +605,25 @@ foreach($reclusos as $recluso) {
     echo $output;
 }
 
+quebra("Cuidadores");
+
+$vida = [
+    ["ser" => "homem", "cuidador" => "médico", "emv" => 73],
+    ["ser" => "cão", "cuidador" => "veterinário", "emv" => 12],
+    ["ser" => "gato", "cuidador" => "veterinário", "emv" => 15],
+    ["ser" => "criança", "cuidador" => "pediatra", "emv" => 80],
+    ["ser" => "idoso", "cuidador" => "geriatra", "emv" => 85],
+    ["ser" => "atleta", "cuidador" => "fisioterapeuta", "emv" => 78],
+    ["ser" => "paciente", "cuidador" => "enfermeiro", "emv" => 75],
+    ["ser" => "gestante", "cuidador" => "obstetra", "emv" => 82],
+    ["ser" => "ave", "cuidador" => "biólogo", "emv" => 10],
+    ["ser" => "peixe", "cuidador" => "aquarista", "emv" => 5],
+    ["ser" => "cavalo", "cuidador" => "tratador", "emv" => 25],
+    ["ser" => "planta", "cuidador" => "jardineiro", "emv" => 2],
+    ["ser" => "árvore", "cuidador" => "engenheiro florestal", "emv" => 50],
+    ["ser" => "animal selvagem", "cuidador" => "zoólogo", "emv" => 20]
+];
+
 
 
 echo "<br>";
