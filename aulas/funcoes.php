@@ -60,3 +60,5 @@ foreach ($numeros as $num) {
     echo "o $num é " . parouimpar($num);
     echo "<br>";
 }
+
+?>

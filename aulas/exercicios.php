@@ -6,3 +6,4 @@ function bonito($nome) {
 
 bonito("Dani");
 
+?>

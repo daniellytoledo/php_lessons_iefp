@@ -336,8 +336,8 @@ echo "<br>";
 quebra("ARRAYS provenientes de FORMS");
 ?>
 
-<form method="POST">
-    Nome &nbsp;&nbsp;&nbsp;<input type="text" name="fnome">
+<form method="POST" style="background-color: #00887A; padding: 10px; color: white">
+    Nome <input type="text" name="fnome">
     <br><br>
     Morada &nbsp;<input type="text" name="fmorada">
     <br><br>
@@ -346,7 +346,48 @@ quebra("ARRAYS provenientes de FORMS");
     <input type="submit" value="Enviar">
 </form>
 
+<br>
+<p>outra forma...</p>
+<br>
+
+<form method="POST" style="background-color: #00887A; padding: 10px;">
+    <input type="text" name="fnome" placeholder="Nome">
+    <br><br>
+    <input type="text" name="fmorada" placeholder="Morada">
+    <br><br>
+    <input type="number" name="ftelefone" placeholder="Telefone">
+    <br><br>
+    <input type="submit" value="Enviar">
+</form>
+
+<br>
+<p>a forma usada atualmente :: label</p>
+<br>
+
+<form method="POST" action="" style="background-color: #00887A; padding: 10px; color: white"> 
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" name="fname" required>
+    <br>
+    <br>
+    <label for="morada">Morada</label>
+    <input type="text" id="morada" name="fmorada" required>
+    <br>
+    <br>
+    <label for="number">Telefone</label>
+    <input type="text" id="telefone" name="ftelefone">
+</form>
+
 <?php
+
+quebra("ISSET");
+
+if(isset($_POST['fnome'])) {
+    echo "Obrigada por preencher. <br>";
+    echo $_POST['fnome'];
+} else {
+    echo "Página aberta por navegação... <br>";
+}
+
 
 quebra("ASPAS DUPLAS vs PLICAS");
 if($_SERVER['REQUEST_METHOD']=="POST"){
@@ -607,6 +648,10 @@ foreach($reclusos as $recluso) {
 
 quebra("Cuidadores");
 
+echo "<br>";
+echo "------------ Exercício com biblioteca e foreach";
+echo "<br><br>";
+
 $vida = [
     ["ser" => "homem", "cuidador" => "médico", "emv" => 73],
     ["ser" => "cão", "cuidador" => "veterinário", "emv" => 12],
@@ -624,6 +669,20 @@ $vida = [
     ["ser" => "animal selvagem", "cuidador" => "zoólogo", "emv" => 20]
 ];
 
+foreach($vida as $v) {
+    echo "O {$v["ser"]} tem de visitar {$v["cuidador"]} para aspirar passar dos {$v["emv"]} anos. <br>";
+}
+
+echo "<br> Outra maneira... <br><br>";
+
+// ou
+
+foreach($vida as $v) {
+    $ser           = $v["ser"];
+    $cuidador      = $v["cuidador"];
+    $emv           = $v["emv"];
+    echo "O $ser tem de visitar o $cuidador para aspirar a passar dos $emv anos. <br>";
+}
 
 
 echo "<br>";
