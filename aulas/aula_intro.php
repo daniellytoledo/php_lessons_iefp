@@ -27,6 +27,9 @@ exemplo: 5**2 = 25, porque 5 elevado a 2 é igual a 25
 = operador de atribuição
 . operador de concatenação */
 
+require_once "../db/cidades.php";
+require_once "../db/car_rent.php";
+
 function quebra($legenda) {
     echo "<br><hr>:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: $legenda <hr><br>";
 }
