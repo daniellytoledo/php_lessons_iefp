@@ -1,11 +1,12 @@
 <?php
 
-require_once "forms.php";
-require_once "../db/cidades.php";
+require_once "funcoes.php";
 
 if (isset($_POST['fnome'])) {
-    echo "Obrigada por preencher! <br>";
-    echo $_POST['fnome'];
+    echo "Recebi a informação! <br>";
+    pre($_POST);
 } else {
-    echo "Página aberta por navegação.";
+    echo "Não recebi a informação";
+    pre($_POST);
 }
+
